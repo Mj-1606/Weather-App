@@ -22,8 +22,9 @@ function TempAndDetail({
         feels_like,
         timezone,
     },
+    units,
 }) {
-  return (
+      return (
   <div>
     <div className='flex items-center justify-center py-6 text-xl text-cyan-300'>
       <p>{details}</p>
@@ -35,12 +36,12 @@ function TempAndDetail({
             alt='sun'
             className='w-20'
         />
-        <p className='text-5xl'>{`${temp.toFixed()}°`}</p>
+        <p className='text-5xl'>{`${temp.toFixed()}° ${units==='metric'?"C":"F"}`}</p>
         <div className='flex flex-col space-y-2'>
             <div className='flex font-light text-sm items-center justify-center'>
                 <UilTemperature size={18} className="mr-1"/>
                 Real Feel :
-                <span className='font-medium ml-1'>{`${feels_like.toFixed()}°`}</span>
+                <span className='font-medium ml-1'>{`${feels_like.toFixed()}° ${units==='metric'?"C":"F"}`}</span>
             </div>
             <div className='flex font-light text-sm items-center justify-center'>
                 <UilTear size={18} className="mr-1"/>
