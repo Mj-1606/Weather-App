@@ -39,7 +39,7 @@ function TempAndDetail({
         <div className='flex flex-col space-y-2'>
             <div className='flex font-light text-sm items-center justify-center'>
                 <UilTemperature size={18} className="mr-1"/>
-                Real Fell :
+                Real Feel :
                 <span className='font-medium ml-1'>{`${feels_like.toFixed()}°`}</span>
             </div>
             <div className='flex font-light text-sm items-center justify-center'>
