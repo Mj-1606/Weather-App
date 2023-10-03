@@ -24,17 +24,23 @@ function App() {
 
       toast.info("Fetching weather for " + message);
 
-      await GetFormattedWeatherData({ ...query, units }).then((data) => {
+      try {
+        const data = await GetFormattedWeatherData({ ...query, units });
         toast.success(
           `Successfully fetched weather for ${data.name}, ${data.country}.`
         );
-
+        console.log(data);
         setWeather(data);
-      });
+      } catch (error) {
+        // Handle the error here
+        console.error("Error fetching weather:", error);
+        toast.error(`City "${query.q}" not found`);
+      }
     };
 
     fetchWeather();
-  }, [query, units]);
+}, [query, units]);
+
 
   const formatBackground = () => {
     if (!weather) return "from-cyan-700 to-blue-700";

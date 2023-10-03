@@ -9,7 +9,7 @@ const GetWeatherData = (InfoType, SearchParams) => {
   url.search = new URLSearchParams({ ...SearchParams, appid: API_KEY });
 
   //   console.log(url);
-  return fetch(url).then((res) => res.json());
+  return fetch(url).then((res) => res.json()).catch((error) => {console.log(error);});
   //  .then((data) => data)
 };
 const FormatCurrentWeather = (data) => {
